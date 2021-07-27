@@ -11,7 +11,6 @@ window.addEventListener('DOMContentLoaded', function () {
 			tabContent[i].classList.add('hide');
 		}
 	}
-
 	hideTabContent(1);
 
 	function showTabContent(b) {
@@ -38,18 +37,17 @@ window.addEventListener('DOMContentLoaded', function () {
 	let deadline = '2021-08-21';
 
 	function getTimeRemaining(endtime) {
-		let t = Date.parse(endtime) - Date.parse(new Date()),
-			seconds = Math.floor((t / 1000) % 60),
-			minutes = Math.floor((t / 1000 / 60) % 60),
-			hours = Math.floor(t / 1000 / 60 / 60);
-		/*          hours = Math.floor((t/1000/60/60) % 24),
-            days = Math.floor(t/1000/60/60/24); */
-
+		let total = Date.parse(endtime) - Date.parse(new Date()),
+			seconds = Math.floor((total / 1000) % 60),
+			minutes = Math.floor((total / 1000 / 60) % 60),
+			hours = Math.floor(total / 1000 / 60 / 60);
+		//  hours = Math.floor((t/1000/60/60) % 24),
+		//  days = Math.floor(t/1000/60/60/24);
 		return {
-			total: t,
-			hours: hours,
-			minutes: minutes,
-			seconds: seconds,
+			total,
+			hours,
+			minutes,
+			seconds,
 		};
 	}
 
@@ -65,7 +63,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 			function addZero(num) {
 				if (num < 10) {
-					return '0' + num;
+					return `0${num}`;
 				} else {
 					return num;
 				}
@@ -91,22 +89,22 @@ window.addEventListener('DOMContentLoaded', function () {
 		close = document.querySelector('.popup-close'),
 		descr = document.querySelectorAll('.description-btn');
 
-	more.addEventListener('click', function () {
+	more.addEventListener('click', () => {
+		more.classList.add('more-splash');
 		overlay.style.display = 'block';
-		this.classList.add('more-splash');
 		document.body.style.overflow = 'hidden';
 	});
 
-	close.addEventListener('click', function () {
+	close.addEventListener('click', () => {
 		overlay.style.display = 'none';
 		more.classList.remove('more-splash');
 		document.body.style.overflow = '';
 	});
 
-	descr.forEach(function (item) {
-		item.addEventListener('click', function () {
+	descr.forEach(elem => {
+		elem.addEventListener('click', () => {
+			elem.classList.add('more-splash');
 			overlay.style.display = 'block';
-			this.classList.add('more-splash');
 			document.body.style.overflow = 'hidden';
 		});
 	});
