@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', function () {
-	// Tabs:
 	'use strict';
+
+	// Tabs:
 	let tab = document.querySelectorAll('.info-header-tab'),
 		info = document.querySelector('.info-header'),
 		tabContent = document.querySelectorAll('.info-tabcontent');
@@ -82,8 +83,7 @@ window.addEventListener('DOMContentLoaded', function () {
 	}
 	setClock('timer', deadline);
 
-	// Modal
-
+	// Modal:
 	let more = document.querySelector('.more'),
 		overlay = document.querySelector('.overlay'),
 		close = document.querySelector('.popup-close'),
