@@ -89,15 +89,15 @@ window.addEventListener('DOMContentLoaded', function () {
 		close = document.querySelector('.popup-close'),
 		descr = document.querySelectorAll('.description-btn');
 
-	more.addEventListener('click', () => {
-		more.classList.add('more-splash');
+	more.addEventListener('click', function () {
+		this.classList.add('more-splash');
 		overlay.style.display = 'block';
 		document.body.style.overflow = 'hidden';
 	});
 
 	close.addEventListener('click', () => {
-		overlay.style.display = 'none';
 		more.classList.remove('more-splash');
+		overlay.style.display = 'none';
 		document.body.style.overflow = '';
 	});
 
@@ -107,5 +107,33 @@ window.addEventListener('DOMContentLoaded', function () {
 			overlay.style.display = 'block';
 			document.body.style.overflow = 'hidden';
 		});
+	});
+
+	// Form
+	let message = {
+		loading: 'Загрузка...',
+		succes: 'Спасибо! Мы скоро с Вами свяжемся!',
+		failure: 'Что-то пошло не так...',
+	};
+
+	let form = document.querySelector('.main-form'),
+		input = form.getElementsByTagName('input'),
+		statusMessage = document.createElement('div');
+
+	statusMessage.classList.add('status');
+
+	form.addEventListener('submit', function (event) {
+		event.preventDefault();
+		form.appendChild(statusMessage);
+
+		let request = new XMLHttpRequest();
+		request.open('POST', 'server.php');
+		request.setRequestHeader(
+			'Content-Type',
+			'application/x-www-form-urlencoded'
+		);
+
+		let formData = new FormData(form);
+		request.send(formData);
 	});
 });
