@@ -341,7 +341,7 @@ header ul li:before {
 .content .slider .wrap .prev .arrow-left {
 	width: 30px;
 	height: 30px;
-	background: url(icons/left-arrow.svg) center no-repeat;
+	background: url(../icons/left-arrow.svg) center no-repeat;
 	background-size: cover;
 	position: absolute;
 	top: 50%;
@@ -373,7 +373,7 @@ header ul li:before {
 .content .slider .wrap .next .arrow-right {
 	width: 30px;
 	height: 30px;
-	background: url(icons/right-arrow.svg) center no-repeat;
+	background: url(../icons/right-arrow.svg) center no-repeat;
 	background-size: cover;
 	position: absolute;
 	top: 50%;
@@ -554,6 +554,7 @@ header ul li:before {
 	border-bottom: 1px solid #fff;
 	color: #fff;
 }
+
 .content .contact-form form button {
 	margin-top: 60px;
 	width: 150px;
@@ -716,4 +717,9 @@ header ul li:before {
 }
 .overlay .popup-form__btn:hover {
 	box-shadow: 0 0 10px #c78030;
+}
+
+.status {
+	margin-top: 20px;
+	color: #fff;
 }
