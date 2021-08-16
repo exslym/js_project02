@@ -128,7 +128,7 @@ window.addEventListener('DOMContentLoaded', function () {
 			elem.appendChild(statusMessage);
 			let formData = new FormData(elem);
 
-			function postData(data) {
+			function postData() {
 				return new Promise(function (resolve, reject) {
 					let request = new XMLHttpRequest();
 					request.open('POST', 'server.php');
@@ -172,4 +172,53 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	sendForm(form);
 	sendForm(formBottom);
+
+	// Slider:
+	let slideIndex = 1,
+		slides = document.querySelectorAll('.slider-item'),
+		prev = document.querySelector('.prev'),
+		next = document.querySelector('.next'),
+		dotsWrap = document.querySelector('.slider-dots'),
+		dots = document.querySelectorAll('.dot');
+
+	showSlides(slideIndex);
+	function showSlides(n) {
+		if (n > slides.length) {
+			slideIndex = 1;
+		}
+		if (n < 1) {
+			slideIndex = slides.length;
+		}
+
+		// for (let i = 0; i < slides.length; i++) {
+		// 	slides[i]style.display = 'none';
+		// }
+		slides.forEach(item => (item.style.display = 'none'));
+		dots.forEach(item => item.classList.remove('dot-active'));
+
+		slides[slideIndex - 1].style.display = 'block';
+		dots[slideIndex - 1].classList.add('dot-active');
+	}
+
+	function plusSlides(n) {
+		showSlides((slideIndex += n));
+	}
+	function currentSlide(n) {
+		showSlides((slideIndex = n));
+	}
+
+	prev.addEventListener('click', function () {
+		plusSlides(-1);
+	});
+	next.addEventListener('click', function () {
+		plusSlides(1);
+	});
+
+	dotsWrap.addEventListener('click', function (e) {
+		for (let i = 0; i < dots.length + 1; i++) {
+			if (e.target.classList.contains('dot') && e.target == dots[i - 1]) {
+				currentSlide(i);
+			}
+		}
+	});
 });
