@@ -18,6 +18,14 @@
   },
   "homepage": "https://github.com/exslym/js_project02#readme",
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-es6-promise": "^1.1.1",
+    "es6-promise": "^4.2.8",
+    "formdata-polyfill": "^4.0.6",
+    "nodelist-foreach-polyfill": "^1.2.0",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
   }

@@ -1,4 +1,4 @@
-export default function ajax() {
+function form() {
 	let message = {
 		loading: 'Загрузка...',
 		succes: 'Спасибо! Мы скоро с Вами свяжемся!',
@@ -59,3 +59,5 @@ export default function ajax() {
 	sendForm(form);
 	sendForm(formBottom);
 }
+
+module.exports = form;

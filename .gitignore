@@ -23,3 +23,5 @@ yarn-error.log*
 
 *.psd
 *.code-workspace
+
+.jshintrc

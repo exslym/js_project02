@@ -1,4 +1,4 @@
-function modal() {
+export default function modal() {
 	// Modal:
 	let more = document.querySelector('.more'),
 		overlay = document.querySelector('.overlay'),
@@ -25,5 +25,3 @@ function modal() {
 		});
 	});
 }
-
-module.exports = modal;
